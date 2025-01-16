@@ -15,11 +15,11 @@
  */
 package ai.philterd.phinder.ext;
 
-import org.opensearch.core.common.io.stream.StreamInput;
-import org.opensearch.core.common.io.stream.StreamOutput;
-import org.opensearch.core.xcontent.XContentBuilder;
-import org.opensearch.core.xcontent.XContentParser;
-import org.opensearch.search.SearchExtBuilder;
+import org.elasticsearch.common.io.stream.StreamInput;
+import org.elasticsearch.common.io.stream.StreamOutput;
+import org.elasticsearch.search.SearchExtBuilder;
+import org.elasticsearch.xcontent.XContentBuilder;
+import org.elasticsearch.xcontent.XContentParser;
 
 import java.io.IOException;
 import java.util.Objects;

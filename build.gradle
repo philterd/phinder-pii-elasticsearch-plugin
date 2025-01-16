@@ -1,13 +1,12 @@
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'opensearch.opensearchplugin'
-apply plugin: 'opensearch.yaml-rest-test'
-apply plugin: 'opensearch.pluginzip'
+apply plugin: 'elasticsearch.esplugin'
+apply plugin: 'elasticsearch.yaml-rest-test'
 
 group = "ai.philterd"
 version = "1.0.0-SNAPSHOT"
 
-opensearchplugin {
+esplugin {
     name 'phinder'
     description 'Phinder'
     classname "ai.philterd.phinder.PhinderPlugin"
@@ -15,33 +14,29 @@ opensearchplugin {
     noticeFile rootProject.file('NOTICE.txt')
 }
 
-thirdPartyAudit.enabled = false
-forbiddenApisTest.enabled = false
-validateNebulaPom.enabled = false
-loggerUsageCheck.enabled = false
-dependencyLicenses.enabled = false
-
 java {
     targetCompatibility = JavaVersion.VERSION_21
     sourceCompatibility = JavaVersion.VERSION_21
 }
 
 buildscript {
-    ext {
-        opensearch_version = System.getProperty("opensearch.version", "2.18.0")
-    }
 
     repositories {
         mavenLocal()
-        maven { url "https://aws.oss.sonatype.org/content/repositories/snapshots" }
+        maven { url "https://snapshots.elastic.co/maven/" }
         mavenCentral()
         maven { url "https://plugins.gradle.org/m2/" }
     }
 
     dependencies {
-        classpath "org.opensearch.gradle:build-tools:${opensearch_version}"
+        classpath "org.elasticsearch.gradle:build-tools:8.17.0"
     }
 
+}
+
+configurations {
+    implementation.exclude group: "org.apache.logging.log4j", module: "log4j-core"
+    implementation.exclude group: "org.apache.logging.log4j", module: "log4j-api"
 }
 
 dependencies {

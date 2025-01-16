@@ -22,18 +22,16 @@ import ai.philterd.phileas.services.PhileasFilterService;
 import ai.philterd.phinder.ext.PhinderParameters;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.opensearch.action.ActionRequest;
-import org.opensearch.action.search.SearchRequest;
-import org.opensearch.action.search.SearchResponse;
-import org.opensearch.action.support.ActionFilter;
-import org.opensearch.action.support.ActionFilterChain;
-import org.opensearch.core.action.ActionListener;
-import org.opensearch.core.action.ActionResponse;
-import org.opensearch.core.common.bytes.BytesArray;
-import org.opensearch.search.SearchHit;
-import org.opensearch.tasks.Task;
+import org.elasticsearch.action.ActionListener;
+import org.elasticsearch.action.ActionRequest;
+import org.elasticsearch.action.ActionResponse;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.action.support.ActionFilter;
+import org.elasticsearch.action.support.ActionFilterChain;
+import org.elasticsearch.common.bytes.BytesArray;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.tasks.Task;
 
 import java.security.AccessController;
 import java.security.PrivilegedAction;
@@ -41,8 +39,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PhinderActionFilter implements ActionFilter {
-
-    private static final Logger LOGGER = LogManager.getLogger(PhinderActionFilter.class);
 
     private final PhileasFilterService phileasFilterService;
 
@@ -149,7 +145,7 @@ public class PhinderActionFilter implements ActionFilter {
                             });
 
                         } else {
-                            LOGGER.warn("Search request wanted field {} to be redacted but field was not found.", field);
+                            //LOGGER.warn("Search request wanted field {} to be redacted but field was not found.", field);
                         }
 
                     }

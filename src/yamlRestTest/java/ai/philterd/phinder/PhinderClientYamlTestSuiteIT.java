@@ -17,10 +17,10 @@ package ai.philterd.phinder;
 
 import com.carrotsearch.randomizedtesting.annotations.Name;
 import com.carrotsearch.randomizedtesting.annotations.ParametersFactory;
-import org.opensearch.test.rest.yaml.ClientYamlTestCandidate;
-import org.opensearch.test.rest.yaml.OpenSearchClientYamlSuiteTestCase;
+import org.elasticsearch.test.rest.yaml.ClientYamlTestCandidate;
+import org.elasticsearch.test.rest.yaml.ESClientYamlSuiteTestCase;
 
-public class PhinderClientYamlTestSuiteIT extends OpenSearchClientYamlSuiteTestCase {
+public class PhinderClientYamlTestSuiteIT extends ESClientYamlSuiteTestCase {
 
     public PhinderClientYamlTestSuiteIT(@Name("yaml") ClientYamlTestCandidate testCandidate) {
         super(testCandidate);
@@ -28,6 +28,6 @@ public class PhinderClientYamlTestSuiteIT extends OpenSearchClientYamlSuiteTestC
 
     @ParametersFactory
     public static Iterable<Object[]> parameters() throws Exception {
-        return OpenSearchClientYamlSuiteTestCase.createParameters();
+        return ESClientYamlSuiteTestCase.createParameters();
     }
 }

@@ -1,12 +1,8 @@
-# Phinder PII Plugin for OpenSearch
+# Phinder PII Plugin for Elasticsearch
 
-This repository is a plugin for Amazon OpenSearch that redacts PII from search results. It uses the [phileas](https://github.com/philterd/phileas/) library for redaction.
+This repository is a plugin for Elasticsearch that redacts PII from search results. It uses the [phileas](https://github.com/philterd/phileas/) library for redaction.
 
-## Related Topics
-
-If you are here, you may also be interested in:
-* [Field-level security in OpenSearch](https://opensearch.org/docs/latest/security/access-control/field-level-security/)
-* [Field masking in OpenSearch](https://opensearch.org/docs/latest/security/access-control/field-masking/)
+There is also a [version](https://github.com/philterd/phinder-pii-opensearch-plugin) available for OpenSearch which serves as the upstream for this repository.
 
 ## Build and Install
 
@@ -19,12 +15,12 @@ To build the plugin:
 To install the plugin:
 
 ```
-/usr/share/opensearch/bin/opensearch-plugin install --batch file:/path/to/phinder-1.0.0-SNAPSHOT.zip
+/usr/share/elasticsearch/bin/elasticsearch-plugin install --batch file:/path/to/phinder-1.0.0-SNAPSHOT.zip
 ```
 
 ## Using Docker
 
-To quickly run OpenSearch and the plugin for development or testing:
+To quickly run Elasticsearch and the plugin for development or testing:
 
 ```
 docker compose build

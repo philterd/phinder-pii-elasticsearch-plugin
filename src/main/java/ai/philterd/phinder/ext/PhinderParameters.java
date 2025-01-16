@@ -15,16 +15,17 @@
  */
 package ai.philterd.phinder.ext;
 
-import org.opensearch.action.search.SearchRequest;
-import org.opensearch.core.ParseField;
-import org.opensearch.core.common.io.stream.StreamInput;
-import org.opensearch.core.common.io.stream.StreamOutput;
-import org.opensearch.core.common.io.stream.Writeable;
-import org.opensearch.core.xcontent.ObjectParser;
-import org.opensearch.core.xcontent.ToXContentObject;
-import org.opensearch.core.xcontent.XContentBuilder;
-import org.opensearch.core.xcontent.XContentParser;
-import org.opensearch.search.SearchExtBuilder;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.common.io.stream.StreamInput;
+import org.elasticsearch.common.io.stream.StreamOutput;
+import org.elasticsearch.common.io.stream.Writeable;
+import org.elasticsearch.search.SearchExtBuilder;
+import org.elasticsearch.xcontent.ObjectParser;
+import org.elasticsearch.xcontent.ParseField;
+import org.elasticsearch.xcontent.ToXContent;
+import org.elasticsearch.xcontent.ToXContentObject;
+import org.elasticsearch.xcontent.XContentBuilder;
+import org.elasticsearch.xcontent.XContentParser;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -104,7 +105,7 @@ public class PhinderParameters implements Writeable, ToXContentObject {
     }
 
     @Override
-    public XContentBuilder toXContent(XContentBuilder xContentBuilder, Params params) throws IOException {
+    public XContentBuilder toXContent(XContentBuilder xContentBuilder, ToXContent.Params params) throws IOException {
         return xContentBuilder
                 .field(POLICY.getPreferredName(), this.policy)
                 .field(CONTEXT.getPreferredName(), this.context)
