@@ -29,7 +29,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "org.elasticsearch.gradle:build-tools:8.17.1"
+        classpath "org.elasticsearch.gradle:build-tools:8.17.2"
     }
 
 }
