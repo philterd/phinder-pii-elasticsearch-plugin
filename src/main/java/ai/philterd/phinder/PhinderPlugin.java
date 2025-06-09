@@ -15,7 +15,9 @@
  */
 package ai.philterd.phinder;
 
+import ai.philterd.phileas.model.cache.InMemoryCache;
 import ai.philterd.phileas.model.configuration.PhileasConfiguration;
+import ai.philterd.phileas.model.services.CacheService;
 import ai.philterd.phileas.services.PhileasFilterService;
 import ai.philterd.phinder.ext.PhinderParametersExtBuilder;
 import org.elasticsearch.action.support.ActionFilter;
@@ -38,7 +40,8 @@ public class PhinderPlugin extends Plugin implements ActionPlugin, SearchPlugin 
 
             final Properties properties = new Properties();
             final PhileasConfiguration phileasConfiguration = new PhileasConfiguration(properties);
-            final PhileasFilterService phileasFilterService = new PhileasFilterService(phileasConfiguration);
+            final CacheService cacheService = new InMemoryCache();
+            final PhileasFilterService phileasFilterService = new PhileasFilterService(phileasConfiguration, cacheService);
 
             return singletonList(new PhinderActionFilter(phileasFilterService));
 
