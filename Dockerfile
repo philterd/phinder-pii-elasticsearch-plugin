@@ -1,4 +1,4 @@
-FROM elasticsearch:8.17.0
+FROM elasticsearch:9.2.1
 
 ARG VERSION="1.0.0-SNAPSHOT"
 
