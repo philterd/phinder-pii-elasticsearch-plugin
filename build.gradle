@@ -33,7 +33,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "org.elasticsearch.gradle:build-tools:9.3.0"
+        classpath "org.elasticsearch.gradle:build-tools:9.3.1"
     }
 
 }
